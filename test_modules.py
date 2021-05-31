@@ -61,6 +61,7 @@ class TestModules(unittest.TestCase):
     #         arduino.set_buffer(None)
 
     def test_motor_control_joysick(self):
+        # Testing joystick control
         port = '/dev/tty.usbmodem1433401'
         baudrate = 9600
         timeout = 3
@@ -74,7 +75,6 @@ class TestModules(unittest.TestCase):
             data_2 = joystick.getJS('axis3') * 45
             data_3 = '100'
             data = ','.join([str(data_1), str(data_2), data_3])
-
             if data:
                 t = time.time()
                 arduino.send(data)
